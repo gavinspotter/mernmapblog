@@ -23,9 +23,7 @@ const NavLinks = (props) => {
       <li>
         <NavLink to="/u1/journal">MY JOURNAL ENTRYS</NavLink>
       </li>
-      <li>
-        <NavLink to="/themes">THEME</NavLink>
-      </li>
+
       <li>
         <NavLink to="/auth">AUTHENTICATE</NavLink>
       </li>

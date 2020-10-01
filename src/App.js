@@ -12,7 +12,6 @@ import UserPlaces from "./places/pages/UserPlaces";
 import Journal from "./journal/pages/Journal";
 import NewEntry from "./journal/pages/NewEntry";
 import MainNavigation from "./shared/components/navigation/MainNavigation";
-import ChangeHeader from "./themes/Changeheader";
 
 const App = () => {
   return (
@@ -35,9 +34,7 @@ const App = () => {
           <Route>
             <NewEntry path="/journal/new" exact />
           </Route>
-          <Route>
-            <ChangeHeader path="/themes" exact />
-          </Route>
+
           <Redirect to="/" />
         </Switch>
       </main>
