@@ -56,8 +56,13 @@ const NewEntry = () => {
     });
   }, []);
 
+  const journalSubmitHandler = (event) => {
+    event.preventDefault();
+    console.log(formState.inputs);
+  };
+
   return (
-    <form className="place-form">
+    <form className="place-form" onSubmit={journalSubmitHandler}>
       <Input
         id="title"
         element="input"
@@ -76,7 +81,7 @@ const NewEntry = () => {
         onInput={inputHandler}
       />
       <Button type="submit" disabled={!formState.isValid}>
-        add place
+        add entry
       </Button>
     </form>
   );
