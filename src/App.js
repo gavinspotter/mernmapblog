@@ -13,6 +13,8 @@ import Journal from "./journal/pages/Journal";
 import NewEntry from "./journal/pages/NewEntry";
 import MainNavigation from "./shared/components/navigation/MainNavigation";
 import UpdatePlace from "./places/pages/UpdatePlace";
+import Blog from "./blog/pages/Blog";
+import NewBlog from "./blog/pages/NewBlog";
 
 const App = () => {
   return (
@@ -35,8 +37,14 @@ const App = () => {
           <Route path="/:userId/journal" exact>
             <Journal />
           </Route>
-          <Route>
-            <NewEntry path="/journal/new" exact />
+          <Route path="/journal/new" exact>
+            <NewEntry />
+          </Route>
+          <Route path="/:userId/blog" exact>
+            <Blog />
+          </Route>
+          <Route path="/blog/new" exact>
+            <NewBlog />
           </Route>
 
           <Redirect to="/" />
