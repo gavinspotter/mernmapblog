@@ -18,7 +18,7 @@ const JOURNAL = [
     creator: "u2",
   },
   {
-    id: "j1",
+    id: "j2",
     date: "aug 25",
     entry: "my second journal entry",
     creator: "u1",
