@@ -1,5 +1,6 @@
 import React from "react";
 import BlogItem from "./BlogItem";
+import "./BlogList.css";
 
 const BlogList = (props) => {
   if (props.items.length === 0) {
@@ -11,12 +12,12 @@ const BlogList = (props) => {
   }
 
   return (
-    <ul>
+    <ul className="journal-list">
       {props.items.map((blg) => (
         <BlogItem
           key={blg.id}
           id={blg.id}
-          img={blg.blgimg}
+          imge={blg.blgimg}
           blog={blg.blgentry}
         />
       ))}

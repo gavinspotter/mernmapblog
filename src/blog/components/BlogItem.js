@@ -3,13 +3,15 @@ import React from "react";
 import Card from "../../shared/components/UIElements/Card";
 import Button from "../../shared/components/FormElements/Button";
 
+import "./BlogItem.css";
+
 const BlogItem = (props) => {
   return (
-    <li>
-      <Card>
+    <li className="place-item">
+      <Card className="place-item__content">
         <div>
-          <div>
-            <img src={props.img} alt={props.title} />
+          <div className="place-item__image">
+            <img src={props.imge} alt={props.blog} />
           </div>
           <div>{props.blog}</div>
         </div>

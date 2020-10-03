@@ -25,7 +25,7 @@ const NavLinks = (props) => {
         <NavLink to="/journal/new">ADD JOURNAL ENTRY</NavLink>
       </li>
       <li>
-        <NavLink to="/u1/blog">MY BLOG</NavLink>
+        <NavLink to="/ra/blog">MY BLOG</NavLink>
       </li>
       <li>
         <NavLink to="/blog/new">ADD BLOG POST</NavLink>
