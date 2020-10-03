@@ -1,7 +1,8 @@
 import React from "react";
+import FormHook from "../../shared/components/FormElements/FormHook";
 
 const NewBlog = () => {
-  return <div>hi</div>;
+  return <FormHook />;
 };
 
 export default NewBlog;
