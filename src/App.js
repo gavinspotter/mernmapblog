@@ -15,6 +15,8 @@ import MainNavigation from "./shared/components/navigation/MainNavigation";
 import UpdatePlace from "./places/pages/UpdatePlace";
 import Blog from "./blog/pages/Blog";
 import NewBlog from "./blog/pages/NewBlog";
+import UpdateEntry from "./journal/pages/UpdateEntry";
+import UpdateBlog from "./blog/pages/UpdateBlog";
 
 const App = () => {
   return (
@@ -40,11 +42,17 @@ const App = () => {
           <Route path="/journal/new" exact>
             <NewEntry />
           </Route>
+          <Route path="/places/:journalId">
+            <UpdateEntry />
+          </Route>
           <Route path="/:userId/blog" exact>
             <Blog />
           </Route>
           <Route path="/blog/new" exact>
             <NewBlog />
+          </Route>
+          <Route path="/blog/:blogId">
+            <UpdateBlog />
           </Route>
 
           <Redirect to="/" />
