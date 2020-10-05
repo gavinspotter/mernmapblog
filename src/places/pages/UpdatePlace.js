@@ -65,7 +65,7 @@ const UpdatePlace = () => {
         id="description"
         element="textarea"
         label="description"
-        validators={[VALIDATOR_REQUIRE()]}
+        validators={[VALIDATOR_MINLENGTH(5)]}
         errorText="enter valid description (5 characters) "
         onInput={() => {}}
         value={identifiedPlace.description}
