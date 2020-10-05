@@ -42,7 +42,7 @@ const App = () => {
           <Route path="/journal/new" exact>
             <NewEntry />
           </Route>
-          <Route path="/places/:journalId">
+          <Route path="/journal/:journalId">
             <UpdateEntry />
           </Route>
           <Route path="/:userId/blog" exact>

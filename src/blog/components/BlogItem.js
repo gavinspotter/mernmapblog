@@ -15,7 +15,7 @@ const BlogItem = (props) => {
           </div>
           <div>{props.blog}</div>
         </div>
-        <Button>edit</Button>
+        <Button to={`/blog/${props.id}`}>edit</Button>
         <Button>delete</Button>
       </Card>
     </li>
