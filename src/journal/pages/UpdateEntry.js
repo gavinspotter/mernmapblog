@@ -42,6 +42,16 @@ const UpdateEntry = () => {
   return (
     <form>
       <Input
+        id="entry"
+        element="textarea"
+        label="journal entry"
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText="enter valid journal entry"
+        onInput={() => {}}
+        value={identifiedJournal.entry}
+        valid={true}
+      />
+      <Input
         id="date"
         element="input"
         type="text"
