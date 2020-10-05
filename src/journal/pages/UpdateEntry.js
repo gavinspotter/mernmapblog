@@ -56,7 +56,7 @@ const UpdateEntry = () => {
         element="input"
         type="text"
         label="date"
-        validators={[VALIDATOR_REQUIRE()]}
+        validators={[VALIDATOR_MINLENGTH(5)]}
         errorText="enter valid date"
         onInput={() => {}}
         value={identifiedJournal.date}
