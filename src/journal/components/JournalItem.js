@@ -13,7 +13,7 @@ const JournalItem = (props) => {
           <div>{props.entry}</div>
           <div>{props.date}</div>
         </div>
-        <Button>edit</Button>
+        <Button to={`/journal/${props.id}`}>edit</Button>
         <Button>delete</Button>
       </Card>
     </li>
