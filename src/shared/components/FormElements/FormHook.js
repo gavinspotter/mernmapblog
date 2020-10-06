@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 
 import Button from "./Button";
 
-const FormHook = () => {
+const FormHook = (props) => {
   const [value, setValue] = useState();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
@@ -11,15 +11,16 @@ const FormHook = () => {
     setValue("");
   };
 
+  const editData = () => {};
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>blog entry</label>
       <br />
-      <textarea name="blgentry" ref={register} value={value} />
+      <textarea name="blgentry" ref={register} value={value || props.val1} />
       <br />
       <label> blog image </label>
       <br />
-      <textarea name="blgimg" ref={register} value={value} />
+      <textarea name="blgimg" ref={register} value={value || props.val2} />
       <br />
       <Button>submit</Button>
     </form>
