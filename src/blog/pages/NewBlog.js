@@ -7,12 +7,15 @@ import Button from "../../shared/components/FormElements/Button";
 import { useForm } from "react-hook-form";
 const NewBlog = () => {
   const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+  };
   return (
     <Card>
-      <form>
-        <FormInput element="input" element="input" nam1="hi" />
-        <FormInput />
-        <Button type="submit"></Button>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <FormInput label="title" element="input" nam1="hi" valRef={register} />
+        <FormInput label="description" nam1="hello" valRef={register} />
+        <Button> new blog entry </Button>
       </form>
     </Card>
   );
