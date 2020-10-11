@@ -2,6 +2,9 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import FormHook from "../../shared/components/FormElements/FormHook";
 import "./NewBlog.css";
+import Card from "../../shared/components/UIElements/Card";
+import FormInput from "../../shared/components/FormElements/FormInput";
+import Button from "../../shared/components/FormElements/Button";
 
 const BLOG = [
   {
@@ -31,14 +34,13 @@ const UpdateBlog = () => {
   const indentifiedBlog = BLOG.find((b) => b.id === blogId);
 
   return (
-    <div className="blog-form">
-      <FormHook
-        nam1="blgentry"
-        nam2="blgimg"
-        val1={indentifiedBlog.blgentry}
-        val2={indentifiedBlog.blgimg}
-      />
-    </div>
+    <Card>
+      <form>
+        <FormInput />
+        <FormInput />
+        <Button> update blog </Button>
+      </form>
+    </Card>
   );
 };
 
