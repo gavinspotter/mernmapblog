@@ -32,7 +32,12 @@ const UpdateBlog = () => {
 
   return (
     <div className="blog-form">
-      <FormHook val1={indentifiedBlog.blgentry} val2={indentifiedBlog.blgimg} />
+      <FormHook
+        nam1="blgentry"
+        nam2="blgimg"
+        val1={indentifiedBlog.blgentry}
+        val2={indentifiedBlog.blgimg}
+      />
     </div>
   );
 };

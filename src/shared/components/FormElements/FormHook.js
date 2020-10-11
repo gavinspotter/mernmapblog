@@ -16,11 +16,11 @@ const FormHook = (props) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>blog entry</label>
       <br />
-      <textarea name="blgentry" ref={register} value={value || props.val1} />
+      <textarea name={props.nam1} ref={register} value={value || props.val1} />
       <br />
       <label> blog image </label>
       <br />
-      <textarea name="blgimg" ref={register} value={value || props.val2} />
+      <textarea name={props.nam2} ref={register} value={value || props.val2} />
       <br />
       <Button>submit</Button>
     </form>
