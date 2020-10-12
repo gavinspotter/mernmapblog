@@ -7,6 +7,7 @@ import {
   VALIDATOR_MIN,
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
+import { useForm } from "../../shared/hooks/form-hook";
 
 const formReducer = (state, action) => {
   switch (action.type) {
@@ -33,8 +34,8 @@ const formReducer = (state, action) => {
 };
 
 const NewEntry = () => {
-  const [formState, dispatch] = useReducer(formReducer, {
-    inputs: {
+  const [formState, inputHandler] = useForm(
+    {
       title: {
         value: "",
         isValid: false,
@@ -44,17 +45,8 @@ const NewEntry = () => {
         isValid: false,
       },
     },
-    isValid: false,
-  });
-
-  const inputHandler = useCallback((id, value, isValid) => {
-    dispatch({
-      type: "INPUT_CHANGE",
-      value: value,
-      isValid: isValid,
-      inputId: id,
-    });
-  }, []);
+    false
+  );
 
   const journalSubmitHandler = (event) => {
     event.preventDefault();
