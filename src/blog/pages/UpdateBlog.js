@@ -5,6 +5,7 @@ import "./NewBlog.css";
 import Card from "../../shared/components/UIElements/Card";
 import FormInput from "../../shared/components/FormElements/FormInput";
 import Button from "../../shared/components/FormElements/Button";
+import InputFormHook from "../../shared/components/FormElements/InputFormHook";
 
 const BLOG = [
   {
@@ -36,8 +37,8 @@ const UpdateBlog = () => {
   return (
     <Card>
       <form>
-        <FormInput />
-        <FormInput />
+        <InputFormHook />
+        <InputFormHook />
         <Button> update blog </Button>
       </form>
     </Card>
