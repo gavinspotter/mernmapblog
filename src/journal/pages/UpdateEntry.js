@@ -6,6 +6,7 @@ import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
+import "./JournalForm.css";
 const JOURNAL = [
   {
     id: "j1",
@@ -40,7 +41,7 @@ const UpdateEntry = () => {
   }
 
   return (
-    <form>
+    <form className="journal-form">
       <Input
         id="entry"
         element="textarea"
