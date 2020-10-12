@@ -35,7 +35,7 @@ const UpdateBlog = () => {
   return (
     <Card>
       <form>
-        <InputFormHook />
+        <InputFormHook element="editinput" />
         <InputFormHook />
         <Button> update blog </Button>
       </form>

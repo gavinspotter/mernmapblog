@@ -11,16 +11,22 @@ const NewBlog = () => {
     console.log(data);
     setNewEntry("");
   };
+
   return (
     <Card>
       <form onSubmit={handleSubmit(onSubmit)}>
         <InputFormHook
           valRef={register}
           valu1={newEntry}
-          element="input"
           label="title"
+          nam1="sup"
         />
-        <InputFormHook valRef={register} valu1={newEntry} label="description" />
+        <InputFormHook
+          nam1="duh"
+          valRef={register}
+          valu1={newEntry}
+          label="description"
+        />
         <Button> new blog entry </Button>
       </form>
     </Card>
