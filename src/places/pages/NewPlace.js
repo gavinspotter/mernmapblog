@@ -1,5 +1,5 @@
 import React from "react";
-import { useForm } from "../../shared/hooks/form-hook";
+
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
 import {
@@ -7,6 +7,7 @@ import {
   VALIDATOR_MIN,
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
+import { useForm } from "../../shared/hooks/form-hook";
 import "./PlaceForm.css";
 
 const NewPlace = () => {
@@ -53,7 +54,7 @@ const NewPlace = () => {
         onInput={inputHandler}
       />
       <Input
-        id="adress"
+        id="address"
         element="input"
         label="address"
         validators={[VALIDATOR_REQUIRE()]}
