@@ -9,9 +9,15 @@ const InputFormHook = (props) => {
         type={props.type}
         placeholder={props.placeholder}
         ref={props.valRef}
+        value={props.valu1}
       />
     ) : (
-      <textarea id={props.id} rows={props.rows || 3} ref={props.valRef} />
+      <textarea
+        value={props.valu1}
+        id={props.id}
+        rows={props.rows || 3}
+        ref={props.valRef}
+      />
     );
 
   const element2 =
@@ -30,7 +36,7 @@ const InputFormHook = (props) => {
 
   return (
     <div>
-      <label htmlFor={props.id}>{props.label}</label>
+      <label htmlFor={props.id}>{props.label}</label> <br />
       {whichValue}
     </div>
   );

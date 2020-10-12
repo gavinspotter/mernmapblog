@@ -1,20 +1,26 @@
-import React from "react";
-import FormHook from "../../shared/components/FormElements/FormHook";
+import React, { useState } from "react";
 import "./NewBlog.css";
 import Card from "../../shared/components/UIElements/Card";
-import FormInput from "../../shared/components/FormElements/FormInput";
 import Button from "../../shared/components/FormElements/Button";
 import { useForm } from "react-hook-form";
+import InputFormHook from "../../shared/components/FormElements/InputFormHook";
 const NewBlog = () => {
   const { register, handleSubmit } = useForm();
+  const [newEntry, setNewEntry] = useState();
   const onSubmit = (data) => {
     console.log(data);
+    setNewEntry("");
   };
   return (
     <Card>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormInput label="title" element="input" nam1="hi" valRef={register} />
-        <FormInput label="description" nam1="hello" valRef={register} />
+        <InputFormHook
+          valRef={register}
+          valu1={newEntry}
+          element="input"
+          label="title"
+        />
+        <InputFormHook valRef={register} valu1={newEntry} label="description" />
         <Button> new blog entry </Button>
       </form>
     </Card>

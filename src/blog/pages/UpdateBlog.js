@@ -1,9 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import FormHook from "../../shared/components/FormElements/FormHook";
 import "./NewBlog.css";
 import Card from "../../shared/components/UIElements/Card";
-import FormInput from "../../shared/components/FormElements/FormInput";
 import Button from "../../shared/components/FormElements/Button";
 import InputFormHook from "../../shared/components/FormElements/InputFormHook";
 
