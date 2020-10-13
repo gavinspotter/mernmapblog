@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
@@ -31,29 +31,49 @@ const JOURNAL = [
 ];
 
 const UpdateEntry = () => {
-  const journalId = useParams().journalId;
-  const identifiedJournal = JOURNAL.find((j) => j.id === journalId);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const [formState, inputHandler] = useForm(
+  const journalId = useParams().journalId;
+
+  const [formState, inputHandler, setFormData] = useForm(
     {
       title: {
-        value: identifiedJournal.entry,
-        isValid: true,
+        value: "",
+        isValid: false,
       },
       description: {
-        value: identifiedJournal.date,
-        isValid: true,
+        value: "",
+        isValid: false,
       },
     },
-    true
+    false
   );
+
+  const identifiedJournal = JOURNAL.find((j) => j.id === journalId);
+
+  useEffect(() => {
+    setFormData(
+      {
+        title: {
+          value: identifiedJournal.entry,
+          isValid: true,
+        },
+        description: {
+          value: identifiedJournal.date,
+          isValid: true,
+        },
+      },
+      true
+    );
+    setIsLoading(false);
+  }, [setFormData, identifiedJournal]);
 
   const journalUpdateSubmitHandler = (event) => {
     event.preventDefault();
     console.log(formState.inputs);
   };
 
-  if (!identifiedJournal) {
+  if (isLoading) {
     return (
       <div>
         <h2> could not find place </h2>
