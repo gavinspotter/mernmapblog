@@ -2,10 +2,12 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
+
 import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
+import { useForm } from "../../shared/hooks/form-hook";
 import "./JournalForm.css";
 const JOURNAL = [
   {
@@ -32,6 +34,25 @@ const UpdateEntry = () => {
   const journalId = useParams().journalId;
   const identifiedJournal = JOURNAL.find((j) => j.id === journalId);
 
+  const [formState, inputHandler] = useForm(
+    {
+      title: {
+        value: identifiedJournal.entry,
+        isValid: true,
+      },
+      description: {
+        value: identifiedJournal.date,
+        isValid: true,
+      },
+    },
+    true
+  );
+
+  const journalUpdateSubmitHandler = (event) => {
+    event.preventDefault();
+    console.log(formState.inputs);
+  };
+
   if (!identifiedJournal) {
     return (
       <div>
@@ -41,29 +62,27 @@ const UpdateEntry = () => {
   }
 
   return (
-    <form className="journal-form">
+    <form className="journal-form" onSubmit={journalUpdateSubmitHandler}>
       <Input
-        id="entry"
         element="textarea"
         label="journal entry"
         validators={[VALIDATOR_REQUIRE()]}
         errorText="enter valid journal entry"
-        onInput={() => {}}
-        value={identifiedJournal.entry}
-        valid={true}
+        onInput={inputHandler}
+        initialValue={formState.inputs.title.value}
+        initialValid={formState.inputs.title.isValid}
       />
       <Input
-        id="date"
         element="input"
         type="text"
         label="date"
         validators={[VALIDATOR_MINLENGTH(5)]}
         errorText="enter valid date"
-        onInput={() => {}}
-        value={identifiedJournal.date}
-        valid={true}
+        onInput={inputHandler}
+        initialValue={formState.inputs.description.value}
+        initialValid={formState.inputs.description.isValid}
       />
-      <Button type="submit" disabled={true}>
+      <Button type="submit" disabled={!formState.isValid}>
         update journal{" "}
       </Button>
     </form>
