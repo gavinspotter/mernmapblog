@@ -9,6 +9,7 @@ import {
 } from "../../shared/util/validators";
 
 import "./PlaceForm.css";
+import Card from "../../shared/components/UIElements/Card";
 const DUMMY_PLACES = [
   {
     id: "p1",
@@ -25,7 +26,7 @@ const DUMMY_PLACES = [
   },
   {
     id: "p2",
-    title: "my house",
+    title: "my house duh",
     description: "its my place",
     imageUrl:
       "https://upload.wikimedia.org/wikipedia/commons/1/1b/The_judgement_of_the_dead_in_the_presence_of_Osiris.jpg",
@@ -59,19 +60,22 @@ const UpdatePlace = () => {
   const identifiedPlace = DUMMY_PLACES.find((p) => p.id === placeId);
 
   useEffect(() => {
-    setFormData(
-      {
-        title: {
-          value: identifiedPlace.title,
-          isValid: true,
+    if (identifiedPlace) {
+      setFormData(
+        {
+          title: {
+            value: identifiedPlace.title,
+            isValid: true,
+          },
+          description: {
+            value: identifiedPlace.description,
+            isValid: true,
+          },
         },
-        description: {
-          value: identifiedPlace.description,
-          isValid: true,
-        },
-      },
-      true
-    );
+        true
+      );
+    }
+
     setIsLoading(false);
   }, [setFormData, identifiedPlace]);
 
@@ -83,7 +87,9 @@ const UpdatePlace = () => {
   if (!identifiedPlace) {
     return (
       <div>
-        <h2>could not find place</h2>
+        <Card>
+          <h2>could not find place</h2>
+        </Card>
       </div>
     );
   }
