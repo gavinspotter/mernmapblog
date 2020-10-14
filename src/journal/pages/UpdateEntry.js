@@ -9,6 +9,7 @@ import {
 } from "../../shared/util/validators";
 import { useForm } from "../../shared/hooks/form-hook";
 import "./JournalForm.css";
+import Card from "../../shared/components/UIElements/Card";
 const JOURNAL = [
   {
     id: "j1",
@@ -52,19 +53,22 @@ const UpdateEntry = () => {
   const identifiedJournal = JOURNAL.find((j) => j.id === journalId);
 
   useEffect(() => {
-    setFormData(
-      {
-        title: {
-          value: identifiedJournal.entry,
-          isValid: true,
+    if (identifiedJournal) {
+      setFormData(
+        {
+          title: {
+            value: identifiedJournal.entry,
+            isValid: true,
+          },
+          description: {
+            value: identifiedJournal.date,
+            isValid: true,
+          },
         },
-        description: {
-          value: identifiedJournal.date,
-          isValid: true,
-        },
-      },
-      true
-    );
+        true
+      );
+    }
+
     setIsLoading(false);
   }, [setFormData, identifiedJournal]);
 
@@ -73,10 +77,22 @@ const UpdateEntry = () => {
     console.log(formState.inputs);
   };
 
+  if (!identifiedJournal) {
+    return (
+      <div>
+        <Card>
+          <h2> could not find entry</h2>
+        </Card>
+      </div>
+    );
+  }
+
   if (isLoading) {
     return (
       <div>
-        <h2> could not find place </h2>
+        <Card>
+          <h2> loading</h2>
+        </Card>
       </div>
     );
   }
