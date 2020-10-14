@@ -37,6 +37,16 @@ const UpdateBlog = () => {
     console.log(data);
   };
 
+  if (!indentifiedBlog) {
+    return (
+      <div>
+        <Card>
+          <h2> could not find blog post </h2>
+        </Card>
+      </div>
+    );
+  }
+
   return (
     <Card>
       <form onSubmit={handleSubmit(onSubmit)}>
