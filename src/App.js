@@ -18,6 +18,7 @@ import NewBlog from "./blog/pages/NewBlog";
 import UpdateEntry from "./journal/pages/UpdateEntry";
 import UpdateBlog from "./blog/pages/UpdateBlog";
 import Auth from "./user/pages/Auth";
+import { AuthContext } from "./shared/context/auth-context";
 
 const App = () => {
   return (
