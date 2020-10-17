@@ -17,6 +17,7 @@ import Blog from "./blog/pages/Blog";
 import NewBlog from "./blog/pages/NewBlog";
 import UpdateEntry from "./journal/pages/UpdateEntry";
 import UpdateBlog from "./blog/pages/UpdateBlog";
+import Auth from "./user/pages/Auth";
 
 const App = () => {
   return (
@@ -53,6 +54,9 @@ const App = () => {
           </Route>
           <Route path="/blog/:blogId">
             <UpdateBlog />
+          </Route>
+          <Route path="/auth">
+            <Auth />
           </Route>
 
           <Redirect to="/" />
