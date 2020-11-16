@@ -11,6 +11,8 @@ import {
 } from "../../shared/util/validators";
 
 import Button from "../../shared/components/FormElements/Button";
+import ErrorModal from "../../shared/components/UIElements/ErrorModal";
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import { useForm } from "../../shared/hooks/form-hook";
 import { AuthContext } from "../../shared/context/auth-context";
 const Auth = () => {
@@ -94,6 +96,7 @@ const Auth = () => {
 
   return (
     <Card className="authentication">
+      {isLoading && <LoadingSpinner asOverlay />}
       <h2>login required</h2>
       <hr />
       <form onSubmit={authSubmitHandler}>
