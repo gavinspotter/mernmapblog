@@ -65,6 +65,8 @@ const Auth = () => {
     if (isLoginMode) {
     } else {
       try {
+        setIsLoading(true);
+
         const response = await fetch("http://localhost:5000/api/users/signup", {
           method: "POST",
           headers: {
@@ -82,8 +84,10 @@ const Auth = () => {
         console.log(responseData);
       } catch (err) {
         console.log(err);
+        setError(err.message);
       }
     }
+    setIsLoading(false);
 
     auth.login();
   };
