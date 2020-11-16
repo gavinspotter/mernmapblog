@@ -80,16 +80,16 @@ const Auth = () => {
         });
 
         const responseData = await response.json();
+        setIsLoading(false);
+        auth.login();
 
         console.log(responseData);
       } catch (err) {
         console.log(err);
-        setError(err.message);
+        setIsLoading(false);
+        setError(err.message || "something went wrong please try again");
       }
     }
-    setIsLoading(false);
-
-    auth.login();
   };
 
   return (
