@@ -18,10 +18,6 @@ const Users = () => {
         const response = await fetch("http://localhost:5000/api/users");
         const responseData = await response.json();
 
-        if (!responseData.ok) {
-          throw new Error(responseData.message);
-        }
-
         setLoadedUsers(responseData.users);
       } catch (err) {
         setError(err.message);
@@ -35,7 +31,18 @@ const Users = () => {
     setError(null);
   };
 
-  return <UsersList items={} />;
+  return (
+    <React.Fragment>
+      <ErrorModal error={error} onClear={errorHandler} />
+      {isLoading && (
+        <div className="center">
+          {" "}
+          <LoadingSpinner />
+        </div>
+      )}
+      {!isLoading && loadedUsers && <UsersList items={loadedUsers} />}
+    </React.Fragment>
+  );
 };
 
 export default Users;
