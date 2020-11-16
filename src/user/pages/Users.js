@@ -1,18 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import UsersList from "../components/UsersList";
 
 const Users = () => {
-  const USERS = [
-    {
-      id: "u1",
-      name: "Gavin Potter",
-      image: "https://avatars2.githubusercontent.com/u/59751343?v=4",
-      places: 2,
-    },
-  ];
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState();
+  const [loadedUsers, setLoadedUsers] = useState();
 
-  return <UsersList items={USERS} />;
+  useEffect(() => {
+    const sendRequest = async () => {
+      setIsLoading(true);
+
+      try {
+        const response = await fetch("http://localhost:5000/api/users");
+        const responseData = await response.json();
+
+        if (!responseData.ok) {
+          throw new Error(responseData.message);
+        }
+
+        setLoadedUsers(responseData.users);
+      } catch (err) {
+        setError(err.message);
+      }
+      setIsLoading(false);
+    };
+    sendRequest();
+  }, []);
+
+  const errorHandler = () => {
+    setError(null);
+  };
+
+  return <UsersList items={} />;
 };
 
 export default Users;
