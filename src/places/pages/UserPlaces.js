@@ -10,7 +10,17 @@ const UserPlaces = () => {
 
   const userId = useParams().userId;
 
-  useEffect(() => {}, [sendRequest]);
+  useEffect(() => {
+    const fetchPlaces = async () => {
+      try {
+        const responseData = await sendRequest(
+          `http://localhost/api/places/user/${userId}`
+        );
+        setLoadedPlaces(responseData.places);
+      } catch (err) {}
+    };
+    fetchPlaces();
+  }, [sendRequest, userId]);
 
   const loadedPlaces = DUMMY_PLACES.filter((place) => place.creator === userId);
   return <PlaceList items={loadedPlaces} />;
