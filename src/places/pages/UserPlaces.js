@@ -27,6 +27,11 @@ const UserPlaces = () => {
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
+      {isLoading && (
+        <div className="center">
+          <LoadingSpinner />
+        </div>
+      )}
       <PlaceList items={loadedPlaces} />
     </React.Fragment>
   );
