@@ -82,7 +82,7 @@ const Auth = () => {
       } catch (err) {}
     } else {
       try {
-        const response = await sendRequest(
+        await sendRequest(
           "http://localhost:5000/api/users/signup",
           "POST",
           JSON.stringify({
