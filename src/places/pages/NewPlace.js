@@ -33,7 +33,15 @@ const NewPlace = () => {
 
   const placeSubmitHandler = (event) => {
     event.preventDefault();
-    console.log(formState.inputs);
+    sendRequest(
+      "http://localhost:5000/api/places",
+      "POST",
+      JSON.stringify({
+        title: formState.inputs.title.value,
+        description: formState.inputs.description.value,
+        address: formState.inputs.address.value,
+      })
+    );
   };
 
   return (
