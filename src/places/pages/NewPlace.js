@@ -54,6 +54,7 @@ const NewPlace = () => {
 
   return (
     <React.Fragment>
+      <ErrorModal error={error} onClear={clearError} />
       <form className="place-form" onSubmit={placeSubmitHandler}>
         <Input
           id="title"
