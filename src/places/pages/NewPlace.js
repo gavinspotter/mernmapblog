@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
+import ErrorModal from "../../shared/components/UIElements/ErrorModal";
+
 import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MIN,
