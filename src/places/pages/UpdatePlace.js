@@ -8,6 +8,8 @@ import {
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
 
+import { useHttpClient } from "../../shared/hooks/http-hook";
+
 import "./PlaceForm.css";
 import Card from "../../shared/components/UIElements/Card";
 
