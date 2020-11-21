@@ -26,6 +26,7 @@ const UserPlaces = () => {
 
   return (
     <React.Fragment>
+      <ErrorModal error={error} onClear={clearError} />
       <PlaceList items={loadedPlaces} />
     </React.Fragment>
   );
