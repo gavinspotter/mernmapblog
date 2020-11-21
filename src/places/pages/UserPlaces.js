@@ -24,8 +24,11 @@ const UserPlaces = () => {
     fetchPlaces();
   }, [sendRequest, userId]);
 
-  const loadedPlaces = DUMMY_PLACES.filter((place) => place.creator === userId);
-  return <PlaceList items={loadedPlaces} />;
+  return (
+    <React.Fragment>
+      <PlaceList items={loadedPlaces} />
+    </React.Fragment>
+  );
 };
 
 export default UserPlaces;
