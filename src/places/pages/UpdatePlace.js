@@ -10,34 +10,6 @@ import {
 
 import "./PlaceForm.css";
 import Card from "../../shared/components/UIElements/Card";
-const DUMMY_PLACES = [
-  {
-    id: "p1",
-    title: "my house",
-    description: "its my place",
-    imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/1/1b/The_judgement_of_the_dead_in_the_presence_of_Osiris.jpg",
-    address: "163 North Shore Road, Hampton, NH 03842",
-    location: {
-      lat: 42.9465818,
-      lng: -70.795169,
-    },
-    creator: "u1",
-  },
-  {
-    id: "p2",
-    title: "my house duh",
-    description: "its my place",
-    imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/1/1b/The_judgement_of_the_dead_in_the_presence_of_Osiris.jpg",
-    address: "163 North Shore Road, Hampton, NH 03842",
-    location: {
-      lat: 42.9465818,
-      lng: -70.795169,
-    },
-    creator: "u2",
-  },
-];
 
 const UpdatePlace = () => {
   const [isLoading, setIsLoading] = useState(true);
