@@ -32,7 +32,7 @@ const UserPlaces = () => {
           <LoadingSpinner />
         </div>
       )}
-      <PlaceList items={loadedPlaces} />
+      {!isLoading && loadedPlaces && <PlaceList items={loadedPlaces} />}
     </React.Fragment>
   );
 };
