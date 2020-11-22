@@ -39,29 +39,24 @@ const UpdatePlace = () => {
         const responseData = await sendRequest(
           `http://localhost:5000/api/places/${placeId}`
         );
+        setLoadedPlace(responseData.place);
+        setFormData(
+          {
+            title: {
+              value: responseData.title,
+              isValid: true,
+            },
+            description: {
+              value: responseData.description,
+              isValid: true,
+            },
+          },
+          true
+        );
       } catch (err) {}
+      fetchPlace();
     };
-  }, [sendRequest, placeId]);
-
-  useEffect(() => {
-    if (identifiedPlace) {
-      setFormData(
-        {
-          title: {
-            value: identifiedPlace.title,
-            isValid: true,
-          },
-          description: {
-            value: identifiedPlace.description,
-            isValid: true,
-          },
-        },
-        true
-      );
-    }
-
-    setIsLoading(false);
-  }, [setFormData, identifiedPlace]);
+  }, [sendRequest, placeId, setFormData]);
 
   const placeUpdateSubmitHandler = (event) => {
     event.preventDefault();
