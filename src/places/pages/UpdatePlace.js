@@ -33,7 +33,15 @@ const UpdatePlace = () => {
     false
   );
 
-  const identifiedPlace = DUMMY_PLACES.find((p) => p.id === placeId);
+  useEffect(() => {
+    const fetchPlace = async () => {
+      try {
+        const responseData = await sendRequest(
+          `http://localhost:5000/api/places/${placeId}`
+        );
+      } catch (err) {}
+    };
+  }, [sendRequest, placeId]);
 
   useEffect(() => {
     if (identifiedPlace) {
