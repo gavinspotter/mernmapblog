@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState, useContext } from "react";
+import { useParams, useHistory } from "react-router-dom";
 import { useForm } from "../../shared/hooks/form-hook";
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
@@ -20,6 +20,7 @@ const UpdatePlace = () => {
   const [loadedPlace, setLoadedPlace] = useState();
 
   const placeId = useParams().placeId;
+  const history = useHistory();
 
   const [formState, inputHandler, setFormData] = useForm(
     {
@@ -74,6 +75,7 @@ const UpdatePlace = () => {
           "Content-Type": "application/json",
         }
       );
+      history.push("/");
     } catch (err) {}
   };
 
