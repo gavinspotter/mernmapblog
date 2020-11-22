@@ -15,6 +15,7 @@ import Card from "../../shared/components/UIElements/Card";
 
 const UpdatePlace = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const [loadedPlace, setLoadedPlace] = useState();
 
   const placeId = useParams().placeId;
 
