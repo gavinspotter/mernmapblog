@@ -12,6 +12,7 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 
 import "./PlaceForm.css";
 import Card from "../../shared/components/UIElements/Card";
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 
 const UpdatePlace = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -63,7 +64,7 @@ const UpdatePlace = () => {
     console.log(formState.inputs);
   };
 
-  if (!identifiedPlace) {
+  if (!loadedPlace) {
     return (
       <div>
         <Card>
@@ -76,7 +77,7 @@ const UpdatePlace = () => {
   if (isLoading) {
     return (
       <div>
-        <h2>loading</h2>
+        <LoadingSpinner />
       </div>
     );
   }
