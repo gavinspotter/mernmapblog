@@ -13,6 +13,7 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import "./PlaceForm.css";
 import Card from "../../shared/components/UIElements/Card";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 
 const UpdatePlace = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -83,6 +84,7 @@ const UpdatePlace = () => {
   }
   return (
     <React.Fragment>
+      <ErrorModal error={error} onClear={clearError} />
       <form className="place-form" onSubmit={placeUpdateSubmitHandler}>
         <Input
           id="title"
