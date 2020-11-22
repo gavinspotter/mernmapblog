@@ -56,8 +56,8 @@ const UpdatePlace = () => {
           true
         );
       } catch (err) {}
-      fetchPlace();
     };
+    fetchPlace();
   }, [sendRequest, placeId, setFormData]);
 
   const placeUpdateSubmitHandler = (event) => {
@@ -65,7 +65,15 @@ const UpdatePlace = () => {
     console.log(formState.inputs);
   };
 
-  if (!loadedPlace) {
+  if (isLoading) {
+    return (
+      <div>
+        <LoadingSpinner />
+      </div>
+    );
+  }
+
+  if (!loadedPlace && !error) {
     return (
       <div>
         <Card>
@@ -75,42 +83,37 @@ const UpdatePlace = () => {
     );
   }
 
-  if (isLoading) {
-    return (
-      <div>
-        <LoadingSpinner />
-      </div>
-    );
-  }
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
-      <form className="place-form" onSubmit={placeUpdateSubmitHandler}>
-        <Input
-          id="title"
-          element="input"
-          type="text"
-          label="Title"
-          validators={[VALIDATOR_REQUIRE()]}
-          errorText="enter valid title"
-          onInput={inputHandler}
-          initialValue={formState.inputs.title.value}
-          initialValid={formState.inputs.title.isValid}
-        />
-        <Input
-          id="description"
-          element="textarea"
-          label="description"
-          validators={[VALIDATOR_MINLENGTH(5)]}
-          errorText="enter valid description (5 characters) "
-          onInput={inputHandler}
-          initialValue={formState.inputs.description.value}
-          initialValid={formState.inputs.description.isValid}
-        />
-        <Button type="submit" disabled={!formState.isValid}>
-          update place{" "}
-        </Button>
-      </form>
+      {!isLoading && loadedPlace && (
+        <form className="place-form" onSubmit={placeUpdateSubmitHandler}>
+          <Input
+            id="title"
+            element="input"
+            type="text"
+            label="Title"
+            validators={[VALIDATOR_REQUIRE()]}
+            errorText="enter valid title"
+            onInput={inputHandler}
+            initialValue={loadedPlace.title}
+            initialValid={true}
+          />
+          <Input
+            id="description"
+            element="textarea"
+            label="description"
+            validators={[VALIDATOR_MINLENGTH(5)]}
+            errorText="enter valid description (5 characters) "
+            onInput={inputHandler}
+            initialValue={loadedPlace.description}
+            initialValid={true}
+          />
+          <Button type="submit" disabled={!formState.isValid}>
+            update place{" "}
+          </Button>
+        </form>
+      )}
     </React.Fragment>
   );
 };
