@@ -14,7 +14,8 @@ import "./PlaceForm.css";
 import Card from "../../shared/components/UIElements/Card";
 
 const UpdatePlace = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+
   const placeId = useParams().placeId;
 
   const [formState, inputHandler, setFormData] = useForm(
