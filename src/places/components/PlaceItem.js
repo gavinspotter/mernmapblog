@@ -35,7 +35,7 @@ const PlaceItem = (props) => {
         `http://localhost:5000/api/places/${props.id}`,
         "DELETE"
       );
-      props.onDelete();
+      props.onDelete(props.id);
     } catch (err) {}
   };
 
