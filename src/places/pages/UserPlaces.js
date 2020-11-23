@@ -24,6 +24,8 @@ const UserPlaces = () => {
     fetchPlaces();
   }, [sendRequest, userId]);
 
+  const placeDeleteHandler = () => {};
+
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
