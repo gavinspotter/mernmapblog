@@ -9,6 +9,7 @@ import {
 } from "../../shared/util/validators";
 
 import { useHttpClient } from "../../shared/hooks/http-hook";
+import { AuthContext } from "../../shared/context/auth-context";
 
 import "./PlaceForm.css";
 import Card from "../../shared/components/UIElements/Card";
@@ -16,6 +17,7 @@ import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 
 const UpdatePlace = () => {
+  const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [loadedPlace, setLoadedPlace] = useState();
 
@@ -75,7 +77,7 @@ const UpdatePlace = () => {
           "Content-Type": "application/json",
         }
       );
-      history.push("/");
+      history.push("/" + auth.userId + "/places");
     } catch (err) {}
   };
 
