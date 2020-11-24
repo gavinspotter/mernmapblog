@@ -14,11 +14,11 @@ const NewEntry = () => {
 
   const [formState, inputHandler] = useForm(
     {
-      title: {
+      date: {
         value: "",
         isValid: false,
       },
-      description: {
+      entry: {
         value: "",
         isValid: false,
       },
@@ -26,25 +26,36 @@ const NewEntry = () => {
     false
   );
 
-  const journalSubmitHandler = (event) => {
+  const journalSubmitHandler = async (event) => {
     event.preventDefault();
+    try {
+      await sendRequest(
+        "http://localhost:500/api/journal",
+        "POST",
+        JSON.stringify({
+          date: formState.inputs.date.value,
+          entry: formState.inputs.entry.value,
+        }),
+        { "Content-Type": "application/json" }
+      );
+    } catch (err) {}
   };
 
   return (
     <form className="place-form" onSubmit={journalSubmitHandler}>
       <Input
-        id="title"
+        id="date"
         element="input"
         type="text"
-        label="Title"
+        label="date"
         validators={[VALIDATOR_REQUIRE()]}
         errorText="please enter a valid title"
         onInput={inputHandler}
       />
       <Input
-        id="description"
+        id="entry"
         element="textarea"
-        label="description"
+        label="entry"
         validators={[VALIDATOR_MINLENGTH(5)]}
         errorText="please enter a valid description (5 characters)"
         onInput={inputHandler}
