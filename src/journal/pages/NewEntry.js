@@ -38,7 +38,7 @@ const NewEntry = () => {
     event.preventDefault();
     try {
       await sendRequest(
-        "http://localhost:500/api/journal",
+        "http://localhost:5000/api/journal",
         "POST",
         JSON.stringify({
           date: formState.inputs.date.value,
@@ -47,7 +47,7 @@ const NewEntry = () => {
         }),
         { "Content-Type": "application/json" }
       );
-      history.pushState("/");
+      history.push("/");
     } catch (err) {}
   };
 
