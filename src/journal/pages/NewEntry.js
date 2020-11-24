@@ -52,6 +52,7 @@ const NewEntry = () => {
 
   return (
     <React.Fragment>
+      <ErrorModal error={error} onClear={clearError} />
       <form className="place-form" onSubmit={journalSubmitHandler}>
         <Input
           id="date"
