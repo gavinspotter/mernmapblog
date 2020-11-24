@@ -37,6 +37,7 @@ const NewEntry = () => {
         JSON.stringify({
           date: formState.inputs.date.value,
           entry: formState.inputs.entry.value,
+          creator: auth.userId,
         }),
         { "Content-Type": "application/json" }
       );
