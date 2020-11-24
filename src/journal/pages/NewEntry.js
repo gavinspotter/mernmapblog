@@ -8,7 +8,7 @@ import {
 } from "../../shared/util/validators";
 import { useForm } from "../../shared/hooks/form-hook";
 import { useHttpClient } from "../../shared/hooks/http-hook";
-import Auth from "../../user/pages/Auth";
+import { AuthContext } from "../../shared/context/auth-context";
 
 const NewEntry = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
