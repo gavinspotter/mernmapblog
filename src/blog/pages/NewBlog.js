@@ -12,20 +12,31 @@ const NewBlog = () => {
   const { isLoading, error, sendRequest, clearError} = useHttpClient()
   const { register, handleSubmit } = useForm();
   const [newEntry, setNewEntry] = useState();
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    
+    try {
+      await sendRequest(
+        "http://localhost:5000/api/blog",
+        "POST",
+        JSON.stringify({
+          blgentry: data.duh
+        }), 
+        {"Content-Type": "application/json"}
+      )
+      
+    } catch (err) {
+      
+    }
+    
+    
+    console.log();
     setNewEntry("");
   };
 
   return (
     <Card>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <InputFormHook
-          valRef={register}
-          valu1={newEntry}
-          label="title"
-          nam1="sup"
-        />
+        
         <InputFormHook
           nam1="duh"
           valRef={register}
