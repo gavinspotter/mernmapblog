@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./NewBlog.css";
 import Card from "../../shared/components/UIElements/Card";
 import Button from "../../shared/components/FormElements/Button";
@@ -7,6 +7,7 @@ import InputFormHook from "../../shared/components/FormElements/InputFormHook";
 import {AuthContext} from "../../shared/context/auth-context"
 
 const NewBlog = () => {
+  const auth = useContext(AuthContext)
   const { register, handleSubmit } = useForm();
   const [newEntry, setNewEntry] = useState();
   const onSubmit = (data) => {
