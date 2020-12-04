@@ -9,7 +9,7 @@ import JournalList from "../components/JournalList";
 const Journal = () => {
   const userId = useParams().userId;
 
-  return <JournalList items={loadedEntrys} />;
+ // return <JournalList items={} />;
 };
 
 export default Journal;

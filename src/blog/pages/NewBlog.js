@@ -4,6 +4,8 @@ import Card from "../../shared/components/UIElements/Card";
 import Button from "../../shared/components/FormElements/Button";
 import { useForm } from "react-hook-form";
 import InputFormHook from "../../shared/components/FormElements/InputFormHook";
+import {AuthContext} from "../../shared/context/auth-context"
+
 const NewBlog = () => {
   const { register, handleSubmit } = useForm();
   const [newEntry, setNewEntry] = useState();
