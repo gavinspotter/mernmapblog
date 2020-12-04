@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import InputFormHook from "../../shared/components/FormElements/InputFormHook";
 import {useHttpClient} from "../../shared/hooks/http-hook"
 import {AuthContext} from "../../shared/context/auth-context"
+import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 
 const NewBlog = () => {
   const auth = useContext(AuthContext)
@@ -37,7 +38,7 @@ const NewBlog = () => {
 
   return (
     <React.Fragment>
-      
+      <ErrorModal error={error} onClear={clearError}/>
     <Card>
       <form onSubmit={handleSubmit(onSubmit)}>
         
