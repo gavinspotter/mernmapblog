@@ -36,6 +36,8 @@ const NewBlog = () => {
   };
 
   return (
+    <React.Fragment>
+      
     <Card>
       <form onSubmit={handleSubmit(onSubmit)}>
         
@@ -47,6 +49,7 @@ const NewBlog = () => {
         <Button> new blog entry </Button>
       </form>
     </Card>
+    </React.Fragment>
   );
 };
 
