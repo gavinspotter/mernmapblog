@@ -12,7 +12,9 @@ const NewBlog = () => {
   const auth = useContext(AuthContext)
   const { isLoading, error, sendRequest, clearError} = useHttpClient()
   const { register, handleSubmit } = useForm();
-  const [newEntry, setNewEntry] = useState();
+  
+  const history = useHistory()
+
   const onSubmit = async (data) => {
     
     try {
@@ -25,6 +27,7 @@ const NewBlog = () => {
         {"Content-Type": "application/json"}
       )
 
+      history.push("/")
     } catch (err) {
       
     }
@@ -39,7 +42,6 @@ const NewBlog = () => {
         <InputFormHook
           nam1="duh"
           valRef={register}
-          valu1={newEntry}
           label="description"
         />
         <Button> new blog entry </Button>
