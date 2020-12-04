@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import {useHistory} from "react-router-dom"
 import "./NewBlog.css";
 import Card from "../../shared/components/UIElements/Card";
 import Button from "../../shared/components/FormElements/Button";
@@ -23,14 +24,12 @@ const NewBlog = () => {
         }), 
         {"Content-Type": "application/json"}
       )
-      
+
     } catch (err) {
       
     }
     
-    
-    console.log();
-    setNewEntry("");
+  
   };
 
   return (
