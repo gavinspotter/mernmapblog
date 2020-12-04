@@ -9,6 +9,7 @@ import {AuthContext} from "../../shared/context/auth-context"
 
 const NewBlog = () => {
   const auth = useContext(AuthContext)
+  const { isLoading, error, sendRequest, clearError} = useHttpClient()
   const { register, handleSubmit } = useForm();
   const [newEntry, setNewEntry] = useState();
   const onSubmit = (data) => {
