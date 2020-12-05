@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import BlogList from "../components/BlogList";
 
 import {useHttpClient} from "../../shared/hooks/http-hook"
+import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 
 const Blog = () => {
 
@@ -27,6 +28,7 @@ const Blog = () => {
 
   return (
   <React.Fragment>
+    <ErrorModal error={error} onClear={clearError}/>
   <BlogList items={loadedEntrys} />
   </React.Fragment>)
 };
