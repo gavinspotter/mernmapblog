@@ -4,7 +4,7 @@ import Card from "../../shared/components/UIElements/Card";
 import Button from "../../shared/components/FormElements/Button";
 import Modal from "../../shared/components/UIElements/Modal";
 import "./BlogItem.css";
-import {AuthContext } from "../../shared/context"
+import {AuthContext } from "../../shared/context/auth-context"
 
 const BlogItem = (props) => {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
