@@ -9,6 +9,7 @@ import "./NewBlog.css";
 import Card from "../../shared/components/UIElements/Card";
 import Button from "../../shared/components/FormElements/Button";
 import InputFormHook from "../../shared/components/FormElements/InputFormHook";
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 
 
 
@@ -54,6 +55,14 @@ const UpdateBlog = () => {
       
     }
   };
+
+  if(isLoading) {
+    return (
+      <div>
+        <LoadingSpinner/>
+      </div>
+    )
+  }
 
   // if () {
   //   return (
