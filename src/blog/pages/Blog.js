@@ -18,7 +18,7 @@ const Blog = () => {
         const responseData = await sendRequest(
           `http://localhost:5000/api/blog/user/${userId}`
         )
-        setLoadedEntrys(responseData.blogs)
+        setLoadedEntrys(responseData.blog)
       } catch (err) {
         
       }

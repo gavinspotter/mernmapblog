@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import Card from "../../shared/components/UIElements/Card";
 import Button from "../../shared/components/FormElements/Button";
@@ -8,6 +8,9 @@ import {AuthContext } from "../../shared/context"
 
 const BlogItem = (props) => {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
+
+
+  const auth = useContext(AuthContext)
 
   const showDeleteWarningHandler = () => {
     setShowConfirmModal(true);
