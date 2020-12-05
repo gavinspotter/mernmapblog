@@ -55,9 +55,9 @@ const BlogItem = (props) => {
         <Card className="place-item__content">
           <div>
             <div className="place-item__image">
-              <img src={props.imge} alt={props.blog} />
+              <img src={props.imgee} alt={props.blog} />
             </div>
-            <div>{props.blgentry}</div>
+            <div>{props.blgentryy}</div>
           </div>
           {auth.userId === props.creatorId && (
           <Button to={`/blog/${props.id}`}>edit</Button>
