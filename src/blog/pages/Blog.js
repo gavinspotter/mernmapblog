@@ -25,7 +25,10 @@ const Blog = () => {
     }
   }, [sendRequest, userId])
 
-  // return <BlogList items={loadedEntrys} />;
+  return (
+  <React.Fragment>
+  <BlogList items={loadedEntrys} />
+  </React.Fragment>)
 };
 
 export default Blog;
