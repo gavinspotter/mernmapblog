@@ -10,52 +10,45 @@ import Card from "../../shared/components/UIElements/Card";
 import Button from "../../shared/components/FormElements/Button";
 import InputFormHook from "../../shared/components/FormElements/InputFormHook";
 
-const BLOG = [
-  {
-    id: "be1",
-    blgimg: "https://upload.wikimedia.org/wikipedia/commons/d/d6/Ra_Barque.jpg",
-    blgentry: "this is my first blog post",
-    creator: "ra",
-  },
-  {
-    id: "be1",
-    blgimg:
-      "https://upload.wikimedia.org/wikipedia/commons/1/1b/The_judgement_of_the_dead_in_the_presence_of_Osiris.jpg",
-    blgentry: "this is basically my first post",
-    creator: "osiris",
-  },
-  {
-    id: "be1",
-    blgimg:
-      "https://upload.wikimedia.org/wikipedia/commons/d/d4/Set_speared_Apep.jpg",
-    blgentry: "this is me seth's first entry",
-    creator: "seth",
-  },
-];
+
 
 const UpdateBlog = () => {
   const blogId = useParams().blogId;
   //const indentifiedBlog = BLOG.find((b) => b.id === blogId);
-  const {loadedEntry, setLoadedEntry} = useState()
+  const [loadedEntry, setLoadedEntry] = useState()
   const { register, handleSubmit } = useForm();
   const {isLoading, error, sendRequest, clearError} = useHttpClient()
 
   useEffect(()=> {
     const fetchEntry = async () => {
       try {
-        const reponseDat = await sendRequest(
+        const responseData = await sendRequest(
           `http://localhost:5000/api/blog/${blogId}`
         )
+        setLoadedEntry(responseData.blog.blgentry)
       } catch (err) {
         
       }
     }
-
+    fetchEntry()
   }, [sendRequest, blogId])
   
   
-  const onSubmit = (data) => {
-    
+  const onSubmit = async (data) => {
+    try {
+      await sendRequest(
+        `http://localhost:5000/api/blog/${blogId}`,
+        "PATCH",
+        JSON.stringify({
+          blgentry: data.duh
+        }),
+        {
+          "Content-Type": "application/json",
+        }
+      )
+    } catch (err) {
+      
+    }
   };
 
   // if () {
@@ -73,7 +66,7 @@ const UpdateBlog = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <InputFormHook
           nam1="duh"
-          val1={indentifiedBlog.blgentry}
+          val1={loadedEntry}
           element="editInput"
           valRef={register}
         />
