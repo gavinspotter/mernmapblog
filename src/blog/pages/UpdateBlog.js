@@ -41,6 +41,15 @@ const UpdateBlog = () => {
   const {isLoading, error, sendRequest, clearError} = useHttpClient()
 
   useEffect(()=> {
+    const fetchEntry = async () => {
+      try {
+        const reponseDat = await sendRequest(
+          `http://localhost:5000/api/blog/${blogId}`
+        )
+      } catch (err) {
+        
+      }
+    }
 
   }, [sendRequest, blogId])
   
