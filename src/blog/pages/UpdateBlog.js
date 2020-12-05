@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import "./NewBlog.css";
@@ -34,8 +34,12 @@ const UpdateBlog = () => {
   //const indentifiedBlog = BLOG.find((b) => b.id === blogId);
   const {loadedEntry, setLoadedEntry} = useState()
   const { register, handleSubmit } = useForm();
+  
+  useEffect(()=> {})
+  
+  
   const onSubmit = (data) => {
-    console.log(data);
+    
   };
 
   if (!indentifiedBlog) {
