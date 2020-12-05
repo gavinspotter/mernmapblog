@@ -7,6 +7,7 @@ import {useHttpClient} from "../../shared/hooks/http-hook"
 const Blog = () => {
 
   const [loadedEntrys, setLoadedEntrys] = useState()
+  const {isLoading, error, sendRequest, clearError} = useHttpClient()
   const userId = useParams().userId;
   
 
