@@ -18,7 +18,7 @@ const Blog = () => {
         const responseData = await sendRequest(
           `http://localhost:5000/api/blog/user/${userId}`
         )
-        setLoadedEntrys(responseData.blog)
+        setLoadedEntrys(responseData.blogs)
       } catch (err) {
         
       }
@@ -35,7 +35,8 @@ const Blog = () => {
         <LoadingSpinner/>
       </div>
     )}
-  <BlogList items={loadedEntrys} />
+    {!isLoading && loadedEntrys && (<BlogList items={loadedEntrys} />) }
+  
   </React.Fragment>)
 };
 

@@ -19,8 +19,9 @@ const BlogList = (props) => {
         <BlogItem
           key={blg.id}
           id={blg.id}
-          imge={blg.blgimg}
-          blog={blg.blgentry}
+          imge={blg.imge}
+          blgentry={blg.blgentry}
+          
         />
       ))}
     </ul>
