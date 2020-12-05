@@ -64,6 +64,15 @@ const UpdateBlog = () => {
     )
   }
 
+  if(!loadedEntry && !error) {
+    return (
+      <div>
+        <Card>
+          <h2>couldnt find blog</h2>
+        </Card>
+      </div>
+    )
+  }
   // if () {
   //   return (
   //     <div>
