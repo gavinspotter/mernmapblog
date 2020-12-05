@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import {useHttpClient} from "../../shared/hooks/http-hook"
@@ -19,6 +19,8 @@ const UpdateBlog = () => {
   const [loadedEntry, setLoadedEntry] = useState()
   const { register, handleSubmit } = useForm();
   const {isLoading, error, sendRequest, clearError} = useHttpClient()
+
+  const history = useHistory()
 
   useEffect(()=> {
     const fetchEntry = async () => {
