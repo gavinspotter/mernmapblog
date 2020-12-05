@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import "./NewBlog.css";
@@ -31,7 +31,8 @@ const BLOG = [
 
 const UpdateBlog = () => {
   const blogId = useParams().blogId;
-  const indentifiedBlog = BLOG.find((b) => b.id === blogId);
+  //const indentifiedBlog = BLOG.find((b) => b.id === blogId);
+  const {loadedEntry, setLoadedEntry} = useState()
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     console.log(data);
@@ -56,12 +57,7 @@ const UpdateBlog = () => {
           element="editInput"
           valRef={register}
         />
-        <InputFormHook
-          nam1="suh"
-          val1={indentifiedBlog.blgimg}
-          element="editInput"
-          valRef={register}
-        />
+      
         <Button> update blog </Button>
       </form>
     </Card>

@@ -20,12 +20,9 @@ const Blog = () => {
           `http://localhost:5000/api/blog/user/${userId}`
         )
         setLoadedEntrys(responseData.blog)
-      } catch (err) {
-        
-      }
-      fetchEntrys()
-    
-    }
+      } catch (err) {}
+  }
+  fetchEntrys()
   }, [sendRequest, userId])
 
   return (
