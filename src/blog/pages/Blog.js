@@ -4,6 +4,7 @@ import BlogList from "../components/BlogList";
 
 import {useHttpClient} from "../../shared/hooks/http-hook"
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 
 const Blog = () => {
 
@@ -29,6 +30,11 @@ const Blog = () => {
   return (
   <React.Fragment>
     <ErrorModal error={error} onClear={clearError}/>
+    {isLoading && (
+      <div className="center">
+        <LoadingSpinner/>
+      </div>
+    )}
   <BlogList items={loadedEntrys} />
   </React.Fragment>)
 };
