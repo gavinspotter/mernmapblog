@@ -59,7 +59,10 @@ const BlogItem = (props) => {
             </div>
             <div>{props.blgentry}</div>
           </div>
+          {auth.userId === props.creatorId && (
           <Button to={`/blog/${props.id}`}>edit</Button>
+          )}
+          
           <Button danger onClick={showDeleteWarningHandler}>
             delete
           </Button>
