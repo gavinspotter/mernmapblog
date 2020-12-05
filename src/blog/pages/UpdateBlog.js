@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import {useHttpClient} from "../../shared/hooks/http-hook"
+import {AuthContext} from "../../shared/context/auth-context"
 
 import "./NewBlog.css";
 import Card from "../../shared/components/UIElements/Card";
