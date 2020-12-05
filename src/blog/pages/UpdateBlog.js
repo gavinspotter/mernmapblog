@@ -42,7 +42,7 @@ const UpdateBlog = () => {
 
   useEffect(()=> {
 
-  }, [])
+  }, [sendRequest, blogId])
   
   
   const onSubmit = (data) => {
