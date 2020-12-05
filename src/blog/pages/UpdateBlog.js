@@ -49,6 +49,7 @@ const UpdateBlog = () => {
           "Content-Type": "application/json",
         }
       )
+      history.push("/" + auth.userId + "/blog")
     } catch (err) {
       
     }
