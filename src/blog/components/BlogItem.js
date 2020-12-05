@@ -53,7 +53,7 @@ const BlogItem = (props) => {
             <div className="place-item__image">
               <img src={props.imge} alt={props.blog} />
             </div>
-            <div>{props.blog}</div>
+            <div>{props.blgentry}</div>
           </div>
           <Button to={`/blog/${props.id}`}>edit</Button>
           <Button danger onClick={showDeleteWarningHandler}>
