@@ -10,7 +10,20 @@ const Blog = () => {
   const {isLoading, error, sendRequest, clearError} = useHttpClient()
   const userId = useParams().userId;
   
-
+  useEffect(()=> {
+    const fetchEntrys = async () => {
+      try {
+        const responseData = await sendRequest(
+          `http://localhost:5000/api/blog/user/${userId}`
+        )
+        setLoadedEntrys(responseData.blog)
+      } catch (err) {
+        
+      }
+      fetchEntrys()
+    
+    }
+  }, [sendRequest, userId])
 
   // return <BlogList items={loadedEntrys} />;
 };
