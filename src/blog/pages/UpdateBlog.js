@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
+
+import {useHttpClient} from "../../shared/hooks/http-hook"
+
 import "./NewBlog.css";
 import Card from "../../shared/components/UIElements/Card";
 import Button from "../../shared/components/FormElements/Button";
@@ -35,7 +38,10 @@ const UpdateBlog = () => {
   const {loadedEntry, setLoadedEntry} = useState()
   const { register, handleSubmit } = useForm();
   
-  useEffect(()=> {})
+
+  useEffect(()=> {
+
+  })
   
   
   const onSubmit = (data) => {
