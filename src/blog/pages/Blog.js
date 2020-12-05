@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import BlogList from "../components/BlogList";
 
@@ -10,6 +10,7 @@ const Blog = () => {
   const {isLoading, error, sendRequest, clearError} = useHttpClient()
   const userId = useParams().userId;
   
+
 
   // return <BlogList items={loadedEntrys} />;
 };
