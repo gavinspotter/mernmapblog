@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
@@ -13,6 +13,7 @@ import InputFormHook from "../../shared/components/FormElements/InputFormHook";
 
 
 const UpdateBlog = () => {
+  const auth = useContext(AuthContext)
   const blogId = useParams().blogId;
   //const indentifiedBlog = BLOG.find((b) => b.id === blogId);
   const [loadedEntry, setLoadedEntry] = useState()
