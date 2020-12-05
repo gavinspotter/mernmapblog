@@ -62,10 +62,11 @@ const BlogItem = (props) => {
           {auth.userId === props.creatorId && (
           <Button to={`/blog/${props.id}`}>edit</Button>
           )}
-          
+          {auth.userId === props.creatorId && (
           <Button danger onClick={showDeleteWarningHandler}>
             delete
           </Button>
+          )}
         </Card>
       </li>
     </React.Fragment>
