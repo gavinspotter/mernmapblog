@@ -38,26 +38,26 @@ const UpdateBlog = () => {
   //const indentifiedBlog = BLOG.find((b) => b.id === blogId);
   const {loadedEntry, setLoadedEntry} = useState()
   const { register, handleSubmit } = useForm();
-  
+  const {isLoading, error, sendRequest, clearError} = useHttpClient()
 
   useEffect(()=> {
 
-  })
+  }, [])
   
   
   const onSubmit = (data) => {
     
   };
 
-  if (!indentifiedBlog) {
-    return (
-      <div>
-        <Card>
-          <h2> could not find blog post </h2>
-        </Card>
-      </div>
-    );
-  }
+  // if () {
+  //   return (
+  //     <div>
+  //       <Card>
+  //         <h2> could not find blog post </h2>
+  //       </Card>
+  //     </div>
+  //   );
+  // }
 
   return (
     <Card>
