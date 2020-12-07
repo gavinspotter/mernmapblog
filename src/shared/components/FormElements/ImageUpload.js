@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react'
+import React, {useRef, useState, useEffect} from 'react'
 
 import Button from "./Button"
 
@@ -11,6 +11,8 @@ const ImageUpload = props => {
     const [isValid, setIsValid] = useState(false)
 
     const filePickerRef = useRef()
+
+    useEffect(() => {}, [file])
 
     const pickedHandler = event => {
         let pickedfile
