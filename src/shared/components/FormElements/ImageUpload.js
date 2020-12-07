@@ -16,6 +16,7 @@ const ImageUpload = props => {
         if(!file) {
             return
         }
+        const fileReader = new FileReader()
     }, [file])
 
     const pickedHandler = event => {
