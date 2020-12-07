@@ -25,6 +25,10 @@ const Blog = () => {
   fetchEntrys()
   }, [sendRequest, userId])
 
+  const blogDeleteHandler = (deletedBlogId) => {
+    setLoadedEntrys((prevBlogs)=> prevBlogs.filter((blog)=> blog.id !== deletedBlogId))
+  }
+
   return (
   <React.Fragment>
     <ErrorModal error={error} onClear={clearError}/>
