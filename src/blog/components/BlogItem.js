@@ -7,6 +7,7 @@ import "./BlogItem.css";
 import {AuthContext } from "../../shared/context/auth-context"
 import {useHttpClient} from "../../shared/hooks/http-hook"
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 
 const BlogItem = (props) => {
 
@@ -66,6 +67,7 @@ const BlogItem = (props) => {
       </Modal>
       <li className="place-item">
         <Card className="place-item__content">
+          {isLoading && <LoadingSpinner asOverlay/>}
           <div>
             <div className="place-item__image">
               <img src={props.imgee} alt={props.blog} />
