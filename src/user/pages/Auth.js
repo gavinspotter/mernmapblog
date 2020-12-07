@@ -120,7 +120,7 @@ const Auth = () => {
             />
           )}
 
-          {!isLoginMode && <ImageUpload id="image"/>}
+          {!isLoginMode && <ImageUpload center id="image"/>}
 
           <Input
             element="input"
