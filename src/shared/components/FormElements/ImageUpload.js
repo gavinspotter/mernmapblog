@@ -13,7 +13,12 @@ const ImageUpload = props => {
     const filePickerRef = useRef()
 
     const pickedHandler = event => {
-        console.log(event.target)
+        if(event.target.files || event.target.files.length === 1) {
+            const pickedfile = event.target.files[0];
+            setFile(pickedfile);
+            setIsValid(true)
+            return
+        }
     }
 
     const pickImageHandler = () => {
