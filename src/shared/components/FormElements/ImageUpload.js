@@ -12,7 +12,11 @@ const ImageUpload = props => {
 
     const filePickerRef = useRef()
 
-    useEffect(() => {}, [file])
+    useEffect(() => {
+        if(!file) {
+            return
+        }
+    }, [file])
 
     const pickedHandler = event => {
         let pickedfile
