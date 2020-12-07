@@ -8,7 +8,9 @@ const ImageUpload = props => {
 
     const filePickerRef = useRef()
 
-    const pickedHandler = event => {}
+    const pickedHandler = event => {
+        console.log(event.target)
+    }
 
     const pickImageHandler = () => {
         filePickerRef.current.click()
@@ -21,7 +23,7 @@ const ImageUpload = props => {
             <div className="image-upload__preview">
                 <img src="" alt="preview"/>
             </div>
-            <Button type="button" onClick={}> pick image</Button>
+            <Button type="button" onClick={pickImageHandler}> pick image</Button>
             </div>
 
         </div>
