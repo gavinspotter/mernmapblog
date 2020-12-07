@@ -8,11 +8,13 @@ const ImageUpload = props => {
 
     const filePickerRef = useRef()
 
-    const pickImageHandler = () => {}
+    const pickImageHandler = () => {
+        filePickerRef.current.click()
+    }
 
     return (
         <div className="form-control">
-            <input id={props.id} style={{display: "none"}} type="file" accept=".jpg,.png,.jpeg"/>
+            <input ref={filePickerRef} id={props.id} style={{display: "none"}} type="file" accept=".jpg,.png,.jpeg"/>
             <div className={`image-upload ${props.center && "center"}`}>
             <div className="image-upload__preview">
                 <img src="" alt="preview"/>
