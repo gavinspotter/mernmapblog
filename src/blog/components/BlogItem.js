@@ -8,6 +8,8 @@ import {AuthContext } from "../../shared/context/auth-context"
 import {useHttpClient} from "../../shared/hooks/http-hook"
 
 const BlogItem = (props) => {
+
+  const {isLoading, error, sendRequest, clearError} = useHttpClient()
   const [showConfirmModal, setShowConfirmModal] = useState(false);
 
 
