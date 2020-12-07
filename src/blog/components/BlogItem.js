@@ -23,9 +23,17 @@ const BlogItem = (props) => {
     setShowConfirmModal(false);
   };
 
-  const confirmDeleteHandler = () => {
+  const confirmDeleteHandler = async () => {
     setShowConfirmModal(false);
-    console.log("deleting...");
+    try {
+      await sendRequest(
+        `http://localhost:5000/api/blog/${props.id}`,
+        "DELETE"
+      )
+      props.onDelete(props.id)
+    } catch (err) {
+      
+    }
   };
 
   return (
