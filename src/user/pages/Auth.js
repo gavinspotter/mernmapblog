@@ -90,6 +90,9 @@ const Auth = () => {
       } catch (err) {}
     } else {
       try {
+
+        const formData = new FormData();
+
         const responseData = await sendRequest(
           "http://localhost:5000/api/users/signup",
           "POST",
