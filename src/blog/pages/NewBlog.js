@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import {useHistory} from "react-router-dom"
 import "./NewBlog.css";
 import Card from "../../shared/components/UIElements/Card";

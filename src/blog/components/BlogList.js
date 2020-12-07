@@ -22,6 +22,7 @@ const BlogList = (props) => {
           imgee={blg.imge}
           blgentryy={blg.blgentry}
           creatorId={blg.creator}
+          onDelete={props.onDeleteBlog}
 
         />
       ))}
