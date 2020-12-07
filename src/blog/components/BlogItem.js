@@ -6,6 +6,7 @@ import Modal from "../../shared/components/UIElements/Modal";
 import "./BlogItem.css";
 import {AuthContext } from "../../shared/context/auth-context"
 import {useHttpClient} from "../../shared/hooks/http-hook"
+import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 
 const BlogItem = (props) => {
 
@@ -38,6 +39,7 @@ const BlogItem = (props) => {
 
   return (
     <React.Fragment>
+      <ErrorModal error={error} onClear={clearError}/>
       <Modal
         show={showConfirmModal}
         onCancel={cancelDeleteHandler}
