@@ -37,7 +37,7 @@ const Blog = () => {
         <LoadingSpinner/>
       </div>
     )}
-    {!isLoading && loadedEntrys && (<BlogList items={loadedEntrys} />) }
+    {!isLoading && loadedEntrys && (<BlogList items={loadedEntrys} onDeleteBlog={blogDeleteHandler}/>) }
   
   </React.Fragment>)
 };
