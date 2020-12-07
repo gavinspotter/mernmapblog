@@ -10,13 +10,14 @@ import Card from "../../shared/components/UIElements/Card";
 import Button from "../../shared/components/FormElements/Button";
 import InputFormHook from "../../shared/components/FormElements/InputFormHook";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 
 
 
 const UpdateBlog = () => {
   const auth = useContext(AuthContext)
   const blogId = useParams().blogId;
-  //const indentifiedBlog = BLOG.find((b) => b.id === blogId);
+
   const [loadedEntry, setLoadedEntry] = useState()
   const { register, handleSubmit } = useForm();
   const {isLoading, error, sendRequest, clearError} = useHttpClient()
@@ -84,6 +85,10 @@ const UpdateBlog = () => {
   // }
 
   return (
+
+    <React.Fragment>
+      <ErrorModal error={error} onClear={clearError}/>
+      {!isLoading && loadedEntry && (
     <Card>
       <form onSubmit={handleSubmit(onSubmit)}>
         <InputFormHook
@@ -95,7 +100,8 @@ const UpdateBlog = () => {
       
         <Button> update blog </Button>
       </form>
-    </Card>
+    </Card> )}
+    </React.Fragment>
   );
 };
 
