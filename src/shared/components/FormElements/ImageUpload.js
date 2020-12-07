@@ -17,7 +17,9 @@ const ImageUpload = props => {
             const pickedfile = event.target.files[0];
             setFile(pickedfile);
             setIsValid(true)
-            return
+            
+        } else {
+            setIsValid(false)
         }
     }
 
