@@ -58,7 +58,7 @@ const UpdatePlace = () => {
           },
           true
         );
-      } catch (err) {}
+      } catch (err) { }
     };
     fetchPlace();
   }, [sendRequest, placeId, setFormData]);
@@ -75,10 +75,11 @@ const UpdatePlace = () => {
         }),
         {
           "Content-Type": "application/json",
+          Authorization: "Bearer " + auth.token
         }
       );
       history.push("/" + auth.userId + "/places");
-    } catch (err) {}
+    } catch (err) { }
   };
 
   if (isLoading) {
