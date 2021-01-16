@@ -86,15 +86,15 @@ const Auth = () => {
             "Content-Type": "application/json",
           }
         );
-        auth.login(responseData.user.id);
-      } catch (err) {}
+        auth.login(responseData.userId);
+      } catch (err) { }
     } else {
       try {
 
         const formData = new FormData();
-        formData.append('email', formState.inputs.email.value )
-        formData.append('name',  formState.inputs.name.value )
-        formData.append("password", formState.inputs.password.value )
+        formData.append('email', formState.inputs.email.value)
+        formData.append('name', formState.inputs.name.value)
+        formData.append("password", formState.inputs.password.value)
         formData.append("image", formState.inputs.image.value)
         const responseData = await sendRequest(
           "http://localhost:5000/api/users/signup",
@@ -102,8 +102,8 @@ const Auth = () => {
           formData
         );
 
-        auth.login(responseData.user.id);
-      } catch (err) {}
+        auth.login(responseData.userId);
+      } catch (err) { }
     }
   };
 
@@ -126,7 +126,7 @@ const Auth = () => {
             />
           )}
 
-          {!isLoginMode && <ImageUpload center id="image" onInput={inputHandler} errorText="please provide an image"/>}
+          {!isLoginMode && <ImageUpload center id="image" onInput={inputHandler} errorText="please provide an image" />}
 
           <Input
             element="input"
