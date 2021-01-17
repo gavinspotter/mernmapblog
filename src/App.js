@@ -28,10 +28,9 @@ const App = () => {
 
   const login = useCallback((uid, token) => {
     setToken(token);
-
     setUserId(uid);
-
-    localStorage.setItem('userData', JSON.stringify({ userId: uid, token: token }))
+    const tokenExpirationDate = new Date(new Date().getTime() + 1000 * 60 * 60)
+    localStorage.setItem('userData', JSON.stringify({ userId: uid, token: token, expiration: tokenExpirationDate.toISOString() }))
   }, []);
 
   const logout = useCallback(() => {
