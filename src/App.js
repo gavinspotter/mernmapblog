@@ -24,6 +24,8 @@ const App = () => {
   const [token, setToken] = useState(false);
   const [userId, setUserId] = useState(false);
 
+
+
   const login = useCallback((uid, token) => {
     setToken(token);
 
@@ -36,6 +38,13 @@ const App = () => {
     setToken(null)
     setUserId(null);
   }, []);
+
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem('userData'))
+    if (storedData && storedData.token) {
+      login(storedData.userId, storedData.token)
+    }
+  }, [login])
 
   let routes;
 
