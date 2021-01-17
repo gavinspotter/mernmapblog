@@ -20,6 +20,8 @@ import UpdateBlog from "./blog/pages/UpdateBlog";
 import Auth from "./user/pages/Auth";
 import { AuthContext } from "./shared/context/auth-context";
 
+let logoutTimer;
+
 const App = () => {
   const [token, setToken] = useState(false);
   const [userId, setUserId] = useState(false);
