@@ -24,6 +24,7 @@ let logoutTimer;
 
 const App = () => {
   const [token, setToken] = useState(false);
+
   const [userId, setUserId] = useState(false);
 
 
@@ -42,11 +43,19 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    if (token) {
+      setTimeout(logout,)
+    }
+  }, [token, logout])
+
+  useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem('userData'))
     if (storedData && storedData.token && new Date(storedData.expiration) > new Date()) {
       login(storedData.userId, storedData.token, new Date(storedData.expiration))
     }
   }, [login])
+
+
 
   let routes;
 
