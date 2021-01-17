@@ -44,10 +44,11 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    if (token) {
-      setTimeout(logout,)
+    if (token && tokenExpirationDate) {
+      const remainingTime = tokenExpirationDate.getTime() - new Date().getItem()
+      setTimeout(logout, remainingTime)
     }
-  }, [token, logout])
+  }, [token, logout, tokenExpirationDate])
 
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem('userData'))
