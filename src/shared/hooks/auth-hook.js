@@ -1,4 +1,5 @@
 
+let logoutTimer;
 
 export const useAuth = () => {
     const [token, setToken] = useState(false);
