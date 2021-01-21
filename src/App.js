@@ -19,7 +19,7 @@ import UpdateEntry from "./journal/pages/UpdateEntry";
 import UpdateBlog from "./blog/pages/UpdateBlog";
 import Auth from "./user/pages/Auth";
 import { AuthContext } from "./shared/context/auth-context";
-
+import { useAuth } from "./shared/hooks/auth-hook"
 
 
 const App = () => {
