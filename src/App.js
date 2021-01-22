@@ -7,23 +7,28 @@ import {
 } from "react-router-dom";
 
 // import Users from "./user/pages/Users";
-import NewPlace from "./places/pages/NewPlace";
-import UserPlaces from "./places/pages/UserPlaces";
+// import NewPlace from "./places/pages/NewPlace";
+//import UserPlaces from "./places/pages/UserPlaces";
 import Journal from "./journal/pages/Journal";
 import NewEntry from "./journal/pages/NewEntry";
 import MainNavigation from "./shared/components/navigation/MainNavigation";
-import UpdatePlace from "./places/pages/UpdatePlace";
+// import UpdatePlace from "./places/pages/UpdatePlace";
 import Blog from "./blog/pages/Blog";
 import NewBlog from "./blog/pages/NewBlog";
 import UpdateEntry from "./journal/pages/UpdateEntry";
 import UpdateBlog from "./blog/pages/UpdateBlog";
-import Auth from "./user/pages/Auth";
+// import Auth from "./user/pages/Auth";
 import { AuthContext } from "./shared/context/auth-context";
 import { useAuth } from "./shared/hooks/auth-hook"
 
 let logoutTimer;
 
 const Users = React.lazy(() => import('./user/pages/Users'))
+const NewPlace = React.lazy(() => import('./places/pages/NewPlace'))
+const Auth = React.lazy(() => import('./user/pages/Auth'))
+const UpdatePlace = React.lazy(() => import('./places/pages/UpdatePlace'))
+const UserPlaces = React.lazy(() => import('./places/pages/UserPlaces'))
+
 
 const App = () => {
 
