@@ -6,7 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 
-import Users from "./user/pages/Users";
+// import Users from "./user/pages/Users";
 import NewPlace from "./places/pages/NewPlace";
 import UserPlaces from "./places/pages/UserPlaces";
 import Journal from "./journal/pages/Journal";
@@ -22,6 +22,8 @@ import { AuthContext } from "./shared/context/auth-context";
 import { useAuth } from "./shared/hooks/auth-hook"
 
 let logoutTimer;
+
+const Users = React.lazy(() => import('./user/pages/Users'))
 
 const App = () => {
 

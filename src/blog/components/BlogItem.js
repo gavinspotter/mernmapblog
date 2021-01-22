@@ -4,14 +4,14 @@ import Card from "../../shared/components/UIElements/Card";
 import Button from "../../shared/components/FormElements/Button";
 import Modal from "../../shared/components/UIElements/Modal";
 import "./BlogItem.css";
-import {AuthContext } from "../../shared/context/auth-context"
-import {useHttpClient} from "../../shared/hooks/http-hook"
+import { AuthContext } from "../../shared/context/auth-context"
+import { useHttpClient } from "../../shared/hooks/http-hook"
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 
 const BlogItem = (props) => {
 
-  const {isLoading, error, sendRequest, clearError} = useHttpClient()
+  const { isLoading, error, sendRequest, clearError } = useHttpClient()
   const [showConfirmModal, setShowConfirmModal] = useState(false);
 
 
@@ -29,18 +29,18 @@ const BlogItem = (props) => {
     setShowConfirmModal(false);
     try {
       await sendRequest(
-        `http://localhost:5000/api/blog/${props.id}`,
+        process.env.REACT_APP_BACKEND_URL + `/blog/${props.id}`,
         "DELETE"
       )
       props.onDelete(props.id)
     } catch (err) {
-      
+
     }
   };
 
   return (
     <React.Fragment>
-      <ErrorModal error={error} onClear={clearError}/>
+      <ErrorModal error={error} onClear={clearError} />
       <Modal
         show={showConfirmModal}
         onCancel={cancelDeleteHandler}
@@ -67,7 +67,7 @@ const BlogItem = (props) => {
       </Modal>
       <li className="place-item">
         <Card className="place-item__content">
-          {isLoading && <LoadingSpinner asOverlay/>}
+          {isLoading && <LoadingSpinner asOverlay />}
           <div>
             <div className="place-item__image">
               <img src={props.imgee} alt={props.blog} />
@@ -75,12 +75,12 @@ const BlogItem = (props) => {
             <div>{props.blgentryy}</div>
           </div>
           {auth.userId === props.creatorId && (
-          <Button to={`/blog/${props.id}`}>edit</Button>
+            <Button to={`/blog/${props.id}`}>edit</Button>
           )}
           {auth.userId === props.creatorId && (
-          <Button danger onClick={showDeleteWarningHandler}>
-            delete
-          </Button>
+            <Button danger onClick={showDeleteWarningHandler}>
+              delete
+            </Button>
           )}
         </Card>
       </li>

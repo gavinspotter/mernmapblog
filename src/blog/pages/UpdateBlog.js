@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
-import {useHttpClient} from "../../shared/hooks/http-hook"
-import {AuthContext} from "../../shared/context/auth-context"
+import { useHttpClient } from "../../shared/hooks/http-hook"
+import { AuthContext } from "../../shared/context/auth-context"
 
 import "./NewBlog.css";
 import Card from "../../shared/components/UIElements/Card";
@@ -20,29 +20,29 @@ const UpdateBlog = () => {
 
   const [loadedEntry, setLoadedEntry] = useState()
   const { register, handleSubmit } = useForm();
-  const {isLoading, error, sendRequest, clearError} = useHttpClient()
+  const { isLoading, error, sendRequest, clearError } = useHttpClient()
 
   const history = useHistory()
 
-  useEffect(()=> {
+  useEffect(() => {
     const fetchEntry = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/api/blog/${blogId}`
+          process.env.REACT_APP_BACKEND_URL + `/blog/${blogId}`
         )
         setLoadedEntry(responseData.blog.blgentry)
       } catch (err) {
-        
+
       }
     }
     fetchEntry()
   }, [sendRequest, blogId])
-  
-  
+
+
   const onSubmit = async (data) => {
     try {
       await sendRequest(
-        `http://localhost:5000/api/blog/${blogId}`,
+        process.env.REACT_APP_BACKEND_URL + `/blog/${blogId}`,
         "PATCH",
         JSON.stringify({
           blgentry: data.duh
@@ -53,19 +53,19 @@ const UpdateBlog = () => {
       )
       history.push("/" + auth.userId + "/blog")
     } catch (err) {
-      
+
     }
   };
 
-  if(isLoading) {
+  if (isLoading) {
     return (
       <div>
-        <LoadingSpinner/>
+        <LoadingSpinner />
       </div>
     )
   }
 
-  if(!loadedEntry && !error) {
+  if (!loadedEntry && !error) {
     return (
       <div>
         <Card>
@@ -87,20 +87,20 @@ const UpdateBlog = () => {
   return (
 
     <React.Fragment>
-      <ErrorModal error={error} onClear={clearError}/>
+      <ErrorModal error={error} onClear={clearError} />
       {!isLoading && loadedEntry && (
-    <Card>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <InputFormHook
-          nam1="duh"
-          val1={loadedEntry}
-          element="editInput"
-          valRef={register}
-        />
-      
-        <Button> update blog </Button>
-      </form>
-    </Card> )}
+        <Card>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <InputFormHook
+              nam1="duh"
+              val1={loadedEntry}
+              element="editInput"
+              valRef={register}
+            />
+
+            <Button> update blog </Button>
+          </form>
+        </Card>)}
     </React.Fragment>
   );
 };
